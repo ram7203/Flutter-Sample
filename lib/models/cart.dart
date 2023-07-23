@@ -2,6 +2,14 @@
 import 'package:first_app/models/catalog.dart';
 
 class CartModel {
+  //singleton class
+
+  static final cartModel = CartModel._internal();
+
+  CartModel._internal();
+
+  factory CartModel() => cartModel;
+
   late CatalogModel _catalog;
 
   final List<int> itemIds = [];
