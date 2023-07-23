@@ -17,7 +17,7 @@ class HomeDetailsPage extends StatelessWidget {
         backgroundColor: Colors.transparent,
       ),
       bottomNavigationBar: Container(
-        color: Colors.white,
+        color: context.cardColor,
         child: ButtonBar(
           alignment: MainAxisAlignment.spaceBetween,
           buttonPadding: EdgeInsets.zero,
@@ -28,13 +28,14 @@ class HomeDetailsPage extends StatelessWidget {
               child: "Add to cart".text.make(),
               style: ButtonStyle(
                   backgroundColor:
-                      MaterialStateProperty.all(MyThemes.dartBluishColor),
+                      // ignore: deprecated_member_use
+                      MaterialStateProperty.all(context.theme.backgroundColor),
                   shape: MaterialStateProperty.all(StadiumBorder())),
             ).wh(120, 50)
           ],
         ).p32(),
       ),
-      backgroundColor: MyThemes.creamColor,
+      backgroundColor: context.canvasColor,
       body: SafeArea(
         bottom: false,
         child: Column(
@@ -52,12 +53,12 @@ class HomeDetailsPage extends StatelessWidget {
               edge: VxEdge.top,
               arcType: VxArcType.convey,
               child: Container(
-                color: Colors.white,
+                color: context.cardColor,
                 width: context.screenWidth,
                 child: Column(
                   children: [
                     catalog.name.text.xl4
-                        .color(MyThemes.dartBluishColor)
+                        .color(context.theme.hintColor)
                         .bold
                         .make(),
                     catalog.desc.text.textStyle(context.captionStyle).xl.make(),
